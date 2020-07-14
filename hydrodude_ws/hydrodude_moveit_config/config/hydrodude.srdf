@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="hydrodude">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="left_arm">
+        <joint name="virtual_joint" />
+        <joint name="prisma" />
+        <joint name="revo1_L" />
+        <joint name="revo2_L" />
+        <joint name="revo3_L" />
+        <joint name="revog_L" />
+    </group>
+    <group name="right_arm">
+        <joint name="virtual_joint" />
+        <!--joint name="prisma" /-->
+        <joint name="revo1_R" />
+        <joint name="revo2_R" />
+        <joint name="revo3_R" />
+        <joint name="revog_R" />
+    </group>
+    <group name="left_gripper">
+        <link name="gL_Link" />
+    </group>
+    <group name="right_gripper">
+        <link name="gR_Link" />
+    </group>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="left_gripper" parent_link="gL_Link" group="left_gripper" />
+    <end_effector name="right_gripper" parent_link="gR_Link" group="right_gripper" />
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="base_Link" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="1L_Link" link2="1R_Link" reason="Never" />
+    <disable_collisions link1="1L_Link" link2="2L_Link" reason="Adjacent" />
+    <disable_collisions link1="1L_Link" link2="base_Link" reason="Never" />
+    <disable_collisions link1="1L_Link" link2="subbase_Link" reason="Adjacent" />
+    <disable_collisions link1="1R_Link" link2="2R_Link" reason="Adjacent" />
+    <disable_collisions link1="1R_Link" link2="base_Link" reason="Never" />
+    <disable_collisions link1="1R_Link" link2="subbase_Link" reason="Adjacent" />
+    <disable_collisions link1="2L_Link" link2="3L_Link" reason="Adjacent" />
+    <disable_collisions link1="2L_Link" link2="base_Link" reason="Never" />
+    <disable_collisions link1="2L_Link" link2="gL_Link" reason="Never" />
+    <disable_collisions link1="2R_Link" link2="3R_Link" reason="Adjacent" />
+    <disable_collisions link1="2R_Link" link2="base_Link" reason="Never" />
+    <disable_collisions link1="2R_Link" link2="gR_Link" reason="Never" />
+    <disable_collisions link1="3L_Link" link2="gL_Link" reason="Adjacent" />
+    <disable_collisions link1="3R_Link" link2="gR_Link" reason="Adjacent" />
+    <disable_collisions link1="base_Link" link2="subbase_Link" reason="Adjacent" />
+</robot>

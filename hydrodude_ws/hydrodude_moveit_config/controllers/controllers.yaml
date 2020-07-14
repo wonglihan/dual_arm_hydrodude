@@ -1,0 +1,18 @@
+controller_list:
+  - name: left_arm_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory 
+    joints: 
+      - prisma
+      - revo1_L
+      - revo2_L
+      - revo3_L
+      - revog_L
+  - name: right_arm_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory 
+    joints: 
+      - revo1_R
+      - revo2_R
+      - revo3_R
+      - revog_R

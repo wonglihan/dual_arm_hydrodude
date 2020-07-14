@@ -1,0 +1,20 @@
+controller_list:
+  - name: fake_left_arm_controller
+    joints:
+      - prisma
+      - revo1_L
+      - revo2_L
+      - revo3_L
+      - revog_L
+  - name: fake_right_arm_controller
+    joints:
+      - revo1_R
+      - revo2_R
+      - revo3_R
+      - revog_R
+  - name: fake_left_gripper_controller
+    joints:
+      - revog_L
+  - name: fake_right_gripper_controller
+    joints:
+      - revog_R

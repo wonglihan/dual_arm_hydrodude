@@ -1,0 +1,87 @@
+<launch>
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find hydrodude_gazebo)/world/hydroponic_setup.world"/> 
+		<arg name="paused" value="false"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="gui" value="true"/>
+		<arg name="recording" value="false"/>
+		<arg name="debug" value="false"/>
+	</include>
+
+	  <!-- Robot pose -->
+	  <arg name="x" default="0"/>
+	  <arg name="y" default="0"/>
+	  <arg name="z" default="1.977"/>
+	  <arg name="roll" default="0"/>
+	  <arg name="pitch" default="0"/>
+	  <arg name="yaw" default="0"/>
+
+	<!-- Load the URDF into the parameter server -->
+	<param name="robot_description" textfile='$(find hydrodude)/urdf/hydrodude.urdf' />
+
+	<!-- Spin up the node that will spawn the robot model is defined in the URDF -->
+	<node 
+		name="spawn_urdf" 
+		pkg="gazebo_ros" 
+		type="spawn_model" 
+		args="-param robot_description -urdf -model hydrodude -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"
+	/> 
+
+	  <!-- Robot state publisher -->
+	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+		<param name="publish_frequency" type="double" value="50.0" />
+		<param name="tf_prefix" type="string" value="" />
+	</node>
+
+	<!-- joint_state_controller -->
+	<rosparam file="$(find hydrodude_gazebo)/controller/joint_state_controller.yaml" command="load"/>
+	<node 
+		name="joint_state_controller_spawner" 
+		pkg="controller_manager" 
+		type="controller_manager" 
+		args="spawn 
+		joint_state_controller" 
+		respawn="false" 
+		output="screen"
+	/>
+
+	<!-- Load left arm controller file to parameter server -->
+	<rosparam file="$(find hydrodude_gazebo)/controller/left_arm_controller.yaml" command="load"/>
+
+	<!-- Spin up the left arm controller node -->
+	<node 
+		name="left_arm_controller_spawner" 
+		pkg="controller_manager" 
+		type="controller_manager" 
+		args="spawn left_arm_controller" respawn="false" output="screen"
+	/>
+
+	<!-- Load right arm controller file to parameter server -->
+	<rosparam file="$(find hydrodude_gazebo)/controller/right_arm_controller.yaml" command="load"/>
+
+	<!-- Spin up the right arm controller node -->
+	<node 
+		name="right_arm_controller_spawner" 
+		pkg="controller_manager" 
+		type="controller_manager" 
+		args="spawn right_arm_controller" respawn="false" output="screen"
+	/>
+
+	<rosparam command="load" file="$(find hydrodude_moveit_config)/config/joint_names.yaml"/>
+
+	<param name="moveit_controller_manager" value="moveit_ros_control_interface::MoveItMultiControllerManager" />
+
+	<include file="$(find hydrodude_moveit_config)/launch/planning_context.launch" >
+		<arg name="load_robot_description" value="true" />
+	</include>
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		<param name="/use_gui" value="false"/>
+		<rosparam param="/source_list">[/joint_states]</rosparam>
+	</node>
+
+	<include file="$(find hydrodude_moveit_config)/launch/move_group.launch">
+		<arg name="publish_monitored_planning_scene" value="true" />
+	</include>
+
+</launch>

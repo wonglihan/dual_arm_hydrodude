@@ -1,0 +1,49 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  prisma:
+    has_velocity_limits: true
+    max_velocity: 0.1
+    has_acceleration_limits: false
+    max_acceleration: 0
+  revo1_L:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  revo1_R:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  revo2_L:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  revo2_R:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  revo3_L:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  revo3_R:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  revog_L:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  revog_R:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0

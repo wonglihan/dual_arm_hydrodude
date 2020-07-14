@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="hydrodude">
+<!-- Used for fixing robot to Gazebo 'base_link' -->
+    <link name="world"/>
+
+    <joint name="fixed" type="fixed">
+     <parent link="world"/>
+     <child link="base_Link"/>
+    </joint>
+
+    <link name="base_Link">
+        
+<inertial>
+            <origin xyz="-4.08577562628281E-09 5.16050599749529E-07 -0.0743630926736325" rpy="0 0 0" />
+            <mass value="3.4254793381491" />
+            <inertia ixx="0.0222306632898691" ixy="-1.64554054521163E-08" ixz="-1.28173454850441E-09" iyy="0.0107060911010036" iyz="1.54697349375727E-07" izz="0.0168563055406959" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/base_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/base_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="subbase_Link">
+        
+<inertial>
+            <origin xyz="-8.71258407267937E-07 -1.53747109083469E-07 -0.0750177989052583" rpy="0 0 0" />
+            <mass value="4.11359629717231" />
+            <inertia ixx="0.0110069438739021" ixy="-4.73669452393025E-08" ixz="-8.95667007956274E-08" iyy="0.0640040776284331" iyz="1.19991045173577E-07" izz="0.0583514979909187" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/subbase_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/subbase_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="prisma" type="prismatic">
+        <origin xyz="0 0 -0.18" rpy="0 0 1.5708" />
+        <parent link="base_Link" />
+        <child link="subbase_Link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-0.1" upper="0" effort="1000" velocity="0.1" />
+    </joint>
+    <link name="1L_Link">
+        
+<inertial>
+            <origin xyz="-7.26852476976292E-05 8.59751226260546E-05 0.0258308419900533" rpy="0 0 0" />
+            <mass value="1.23522114046645" />
+            <inertia ixx="0.00287229765469008" ixy="-4.27602844849769E-06" ixz="-2.3201681119986E-06" iyy="0.00298173408214112" iyz="2.75522228588536E-06" izz="0.00172948214226714" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/1L_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/1L_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="revo1_L" type="revolute">
+        <origin xyz="0.15 0 -0.27" rpy="0 0 0" />
+        <parent link="subbase_Link" />
+        <child link="1L_Link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-3.14" upper="3.14" effort="1000" velocity="3" />
+    </joint>
+    <link name="2L_Link">
+        
+<inertial>
+            <origin xyz="0.104265758820151 -2.27206536012048E-05 -0.025" rpy="0 0 0" />
+            <mass value="1.35633389916687" />
+            <inertia ixx="0.0011614048418707" ixy="-1.83331119123256E-07" ixz="-8.27561182048293E-20" iyy="0.0105693092758185" iyz="-8.03413076279438E-21" izz="0.0111655749930363" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/2L_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/2L_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="revo2_L" type="revolute">
+        <origin xyz="0.05 0 0" rpy="1.5708 0 -1.5708" />
+        <parent link="1L_Link" />
+        <child link="2L_Link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-3.14" upper="3.14" effort="1000" velocity="3" />
+    </joint>
+    <link name="3L_Link">
+        
+<inertial>
+            <origin xyz="0.0523160298143089 5.55111512312578E-17 0.0426690974374203" rpy="0 0 0" />
+            <mass value="0.719948957577408" />
+            <inertia ixx="0.000511805566940698" ixy="-5.33120646525004E-19" ixz="-0.000276117500281759" iyy="0.00299855861821175" iyz="6.94381746102678E-20" izz="0.00303604862200198" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/3L_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/3L_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="revo3_L" type="revolute">
+        <origin xyz="0.23 0 0" rpy="0 0 0" />
+        <parent link="2L_Link" />
+        <child link="3L_Link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-3.14" upper="3.14" effort="1000" velocity="3" />
+    </joint>
+    <link name="gL_Link">
+        
+<inertial>
+            <origin xyz="0.0731017536049511 -2.46381787194494E-09 1.29859361874818E-08" rpy="0 0 0" />
+            <mass value="0.123050077446858" />
+            <inertia ixx="4.98652453514562E-05" ixy="6.37066481890997E-12" ixz="-2.44763106340767E-11" iyy="0.000390271889988162" iyz="4.51660905802869E-12" izz="0.000355708542655389" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/gL_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/gL_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="revog_L" type="revolute">
+        <origin xyz="0.18 0 0.05" rpy="0 0 0" />
+        <parent link="3L_Link" />
+        <child link="gL_Link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-3.14" upper="3.14" effort="1000" velocity="3" />
+    </joint>
+    <link name="1R_Link">
+        
+<inertial>
+            <origin xyz="7.2748760836433E-05 8.59751226260437E-05 0.0258308419900532" rpy="0 0 0" />
+            <mass value="1.23522114046645" />
+            <inertia ixx="0.00287229765469008" ixy="4.27281739823453E-06" ixz="2.32016811199788E-06" iyy="0.00298173408214112" iyz="2.75522228588499E-06" izz="0.00172948214226714" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/1R_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/1R_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="revo1_R" type="revolute">
+        <origin xyz="-0.15 0 -0.27" rpy="0 0 0" />
+        <parent link="subbase_Link" />
+        <child link="1R_Link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-3.14" upper="3.14" effort="1000" velocity="3" />
+    </joint>
+    <link name="2R_Link">
+        
+<inertial>
+            <origin xyz="0.104265758820151 -2.27206536012048E-05 0.0250000000000001" rpy="0 0 0" />
+            <mass value="1.35633389916687" />
+            <inertia ixx="0.0011614048418707" ixy="-1.83331119122522E-07" ixz="-1.39579518237173E-17" iyy="0.0105693092758185" iyz="-7.87881791551562E-21" izz="0.0111655749930363" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/2R_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/2R_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="revo2_R" type="revolute">
+        <origin xyz="-0.05 0 0" rpy="1.5708 0 -1.5708" />
+        <parent link="1R_Link" />
+        <child link="2R_Link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-3.14" upper="3.14" effort="1000" velocity="3" />
+    </joint>
+    <link name="3R_Link">
+        
+<inertial>
+            <origin xyz="0.0523160298143089 -5.55111512312578E-17 -0.0426690974374202" rpy="0 0 0" />
+            <mass value="0.719948957577408" />
+            <inertia ixx="0.000511805566940697" ixy="2.42529670902464E-21" ixz="0.000276117500281757" iyy="0.00299855861821175" iyz="-1.94650382814275E-21" izz="0.00303604862200198" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/3R_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/3R_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="revo3_R" type="revolute">
+        <origin xyz="0.23 0 0" rpy="0 0 0" />
+        <parent link="2R_Link" />
+        <child link="3R_Link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-3.14" upper="3.14" effort="1000" velocity="3" />
+    </joint>
+    <link name="gR_Link">
+        
+<inertial>
+            <origin xyz="0.0731017536049511 -2.46381787194494E-09 1.29859361597262E-08" rpy="0 0 0" />
+            <mass value="0.123050077446858" />
+            <inertia ixx="4.98652453514562E-05" ixy="6.37066481964318E-12" ixz="-2.44763106310856E-11" iyy="0.000390271889988162" iyz="4.51660905893712E-12" izz="0.000355708542655389" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/gR_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hydrodude/meshes/gR_Link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="revog_R" type="revolute">
+        <origin xyz="0.18 0 -0.05" rpy="0 0 0" />
+        <parent link="3R_Link" />
+        <child link="gR_Link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-3.14" upper="3.14" effort="1000" velocity="3" />
+    </joint>
+    
+<transmission name="trans_prisma">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="prisma">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="prisma_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_revo1_L">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="revo1_L">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="revo1_L_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_revo2_L">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="revo2_L">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="revo2_L_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_revo3_L">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="revo3_L">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="revo3_L_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_revog_L">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="revog_L">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="revog_L_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_revo1_R">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="revo1_R">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="revo1_R_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_revo2_R">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="revo2_R">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="revo2_R_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_revo3_R">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="revo3_R">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="revo3_R_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_revog_R">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="revog_R">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="revog_R_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

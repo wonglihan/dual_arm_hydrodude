@@ -1,0 +1,1 @@
+copy all the files here to /usr/share/gazebo-9/models/

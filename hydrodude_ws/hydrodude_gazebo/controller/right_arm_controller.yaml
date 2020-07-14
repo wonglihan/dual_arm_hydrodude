@@ -1,0 +1,9 @@
+right_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints: 
+      - revo1_R
+      - revo2_R
+      - revo3_R
+      - revog_R
+  state_publish_rate:  25
+  action_monitor_rate: 10

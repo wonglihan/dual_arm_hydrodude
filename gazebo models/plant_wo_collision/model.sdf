@@ -1,0 +1,151 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='plant_wo_collision'>
+    <link name='link_29'>
+      <pose frame=''>-0.005 -0.01 0.0025 0 -0 1.12457</pose>
+       <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://plant_wo_collision/meshes/leaf.dae</uri>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <ambient>0.36 0.737 0.211 1</ambient>
+          <diffuse>0.36 0.737 0.211 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+    <link name='link_29_clone'>
+      <pose frame=''>-0.015 0.0025 0.008 0 -0 0</pose>
+       <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://plant_wo_collision/meshes/leaf.dae</uri>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <ambient>0.36 0.737 0.211 1</ambient>
+          <diffuse>0.36 0.737 0.211 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+    <link name='link_29_clone_0'>
+      <pose frame=''>0.02 0.016 -0.027 -0.19153 -0.080056 2.3042</pose>
+       <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://plant_wo_collision/meshes/leaf.dae</uri>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <ambient>0.36 0.737 0.211 1</ambient>
+          <diffuse>0.36 0.737 0.211 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+    <link name='link_29_clone_clone'>
+      <pose frame=''>-0.008 0.008 0.0015 0 0 -1.18831</pose>
+       <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://plant_wo_collision/meshes/leaf.dae</uri>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <ambient>0.36 0.737 0.211 1</ambient>
+          <diffuse>0.36 0.737 0.211 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+    <link name='link_29_clone_clone_0'>
+      <pose frame=''>0.013 -0.008 0.008 0 -0 2.79048</pose>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://plant_wo_collision/meshes/leaf.dae</uri>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <ambient>0.36 0.737 0.211 1</ambient>
+          <diffuse>0.36 0.737 0.211 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+    <link name='link_29_clone_clone_1'>
+      <pose frame=''>-0.0047 -0.01 0.06 0 -0 1.37558</pose>
+       <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://plant_wo_collision/meshes/leaf.dae</uri>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <ambient>0.36 0.737 0.211 1</ambient>
+          <diffuse>0.36 0.737 0.211 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+    <static>1</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

@@ -1,0 +1,96 @@
+# Simulation settings for using moveit_sim_controllers
+moveit_sim_hw_interface:
+  joint_model_group: left_arm
+  joint_model_group_pose: todo_no_pose_selected
+# Settings for ros_control_boilerplate control loop
+generic_hw_control_loop:
+  loop_hz: 300
+  cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+hardware_interface:
+  joints:
+    - prisma
+    - revo1_L
+    - revo2_L
+    - revo3_L
+    - revog_L
+    - revo1_R
+    - revo2_R
+    - revo3_R
+    - revog_R
+  sim_control_mode: 1  # 0: position, 1: velocity
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+controller_list:
+  []
+left_position_controller:
+  type: position_controllers/JointPositionController
+  joints:
+    - prisma
+    - revo1_L
+    - revo2_L
+    - revo3_L
+    - revog_L
+  gains:
+    prisma:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    revo1_L:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    revo2_L:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    revo3_L:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    revog_L:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+right_position_controller:
+  type: position_controllers/JointPositionController
+  joints:
+#    - prisma
+    - revo1_R
+    - revo2_R
+    - revo3_R
+    - revog_R
+  gains:
+#    prisma:
+#      p: 100
+#      d: 1
+#      i: 1
+#      i_clamp: 1
+    revo1_R:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    revo2_R:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    revo3_R:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    revog_R:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

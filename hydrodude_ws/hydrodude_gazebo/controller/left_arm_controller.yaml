@@ -1,0 +1,10 @@
+left_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+      - prisma
+      - revo1_L
+      - revo2_L
+      - revo3_L
+      - revog_L
+  state_publish_rate:  25
+  action_monitor_rate: 10
